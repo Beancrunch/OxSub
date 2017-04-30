@@ -18,6 +18,10 @@ body {
   padding-top: 50px;
 }
 
+.left-align {
+  text-align: left;
+}
+
 .below-nav-div {
   padding: 70px 15px;
   text-align: center;
