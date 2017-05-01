@@ -5,13 +5,13 @@ class RequestSummary extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-md-9">
             <div className="left-align">
               {this.props.outingSummary.crew} looking for a {this.props.outingSummary.subRequired} <br />
               For an outing at {this.props.outingSummary.time} on {this.props.outingSummary.date}.
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-3">
             <button type="button" className="btn btn-sm btn-info">Respond</button>
           </div>
         </div>
