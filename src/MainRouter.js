@@ -12,6 +12,7 @@ const MainRouter = () => (
   <Router>
     <div>
       <Route exact path="/" component={Home}/>
+      <Route exact path="/home" component={Home}/>
       <Route path="/login" component={Signin}/>
     </div>
   </Router>
