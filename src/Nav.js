@@ -12,13 +12,13 @@ class Nav extends Component {
              <span className="icon-bar"></span>
              <span className="icon-bar"></span>
            </button>
-           <a className="navbar-brand" href="#">OxSub</a>
+           <a className="navbar-brand" href="/">OxSub</a>
          </div>
          <div id="navbar" className="collapse navbar-collapse">
            <ul className="nav navbar-nav">
              <li><a href="#">Need a Sub?</a></li>
              <li><a href="#">Looking to Sub?</a></li>
-             <li><a href="#">Login</a></li>
+             <li><a href="/login">Login</a></li>
              <li><a href="#">Signup</a></li>
            </ul>
          </div>

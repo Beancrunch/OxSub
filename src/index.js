@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Home from './Home';
+import MainRouter from './MainRouter';
 import './index.css';
 
 ReactDOM.render(
-  <Home />,
+  <MainRouter />,
   document.getElementById('root')
 );
