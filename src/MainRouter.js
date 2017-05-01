@@ -6,22 +6,13 @@ import {
 } from 'react-router-dom';
 import Home from './Home';
 import Nav from './Nav';
-
-const Login = () => (
-  <div>
-    <Nav />
-    <br /><br /><br />
-    <div>
-      <h2>Login</h2>
-    </div>
-  </div>
-);
+import Signin from './Signin';
 
 const MainRouter = () => (
   <Router>
     <div>
       <Route exact path="/" component={Home}/>
-      <Route path="/login" component={Login}/>
+      <Route path="/login" component={Signin}/>
     </div>
   </Router>
 );
