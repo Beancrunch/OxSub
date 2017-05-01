@@ -7,23 +7,26 @@ class RequestSummary extends Component {
         <div className="row">
           <div className="col-md-8">
             <div className="left-align">
-                Christ Church M2 looking for a Cox <br />
-                For an outing at 2pm on Saturday 29 April 2017.
+              {this.props.outingSummary.crew} looking for a {this.props.outingSummary.subRequired} <br />
+              For an outing at {this.props.outingSummary.time} on {this.props.outingSummary.date}.
             </div>
           </div>
           <div className="col-md-4">
-            <button type="button" className="btn btn-sm btn-default">Respond</button>
+            <button type="button" className="btn btn-sm btn-info">Respond</button>
           </div>
         </div>
         <hr />
       </div>
-
     );
   }
 }
 
 class UpcomingOutings extends Component {
   render() {
+    var rows = [];
+    this.props.outingSummaries.forEach(function(outingSummary) {
+      rows.push(<RequestSummary outingSummary={outingSummary} />);
+    });
     return (
       <div className="below-nav-div">
         <div className="container">
@@ -34,11 +37,7 @@ class UpcomingOutings extends Component {
                   <h3 className="panel-title">Upcoming Outings</h3>
                 </div>
                 <div className="panel-body">
-                  <RequestSummary />
-                  <RequestSummary />
-                  <RequestSummary />
-                  <RequestSummary />
-                  <RequestSummary />
+                  {rows}
                 </div>
               </div>
             </div>
