@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { login, logout, isLoggedIn, getIdToken, getProfile } from './AuthService';
 
 class Nav extends Component {
+
   render() {
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top">
@@ -18,8 +20,11 @@ class Nav extends Component {
            <ul className="nav navbar-nav">
              <li><a href="#">Need a Sub?</a></li>
              <li><a href="#">Looking to Sub?</a></li>
-             <li><a href="/login">Login</a></li>
-             <li><a href="#">Signup</a></li>
+             {
+               (isLoggedIn()) ?
+               ( <li><a href="/" onClick={() => logout()}>Logout</a></li> ) :
+               ( <li><a href="#" onClick={() => login()}>Login</a></li> )
+             }
            </ul>
          </div>
         </div>

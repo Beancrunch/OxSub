@@ -7,6 +7,7 @@ import {
 import Home from './Home';
 import Nav from './Nav';
 import Signin from './Signin';
+import Callback from './Callback';
 
 const MainRouter = () => (
   <Router>
@@ -14,6 +15,7 @@ const MainRouter = () => (
       <Route exact path="/" component={Home}/>
       <Route exact path="/home" component={Home}/>
       <Route path="/login" component={Signin}/>
+      <Route path="/callback" component={Callback}/>
     </div>
   </Router>
 );
