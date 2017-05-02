@@ -2,8 +2,10 @@ import decode from 'jwt-decode';
 import { browserHistory } from 'react-router';
 import auth0 from 'auth0-js';
 import Auth0Lock from 'auth0-lock'
+
 const ID_TOKEN_KEY = 'id_token';
 const ACCESS_TOKEN_KEY = 'access_token';
+const PROFILE_TOKEN_KEY = 'profile_token';
 const CLIENT_ID = 'epKIVwrfKWcO0W-4j_1KcqVxl0ZpmhJ0';
 const CLIENT_DOMAIN = 'beancrunch.eu.auth0.com';
 const REDIRECT = 'http://localhost:3000/callback';
@@ -75,19 +77,28 @@ export function setAccessToken() {
 export function setIdToken() {
   let idToken = getParameterByName('id_token');
   localStorage.setItem(ID_TOKEN_KEY, idToken);
-  lock.getProfile(idToken, (error, profile) => {
-    if (error) {
-      console.log('Error loading the Profile', error)
-    } else {
-      console.log(profile)
-    }
-  });
+  // lock.getProfile(idToken, (error, profile) => {
+  //   if (error) {
+  //     console.log('Error loading the Profile', error)
+  //   } else {
+  //     console.log('got profile from server')
+  //     localStorage.setItem(PROFILE_TOKEN_KEY, JSON.stringify(profile))
+  //   }
+  // });
+}
+
+export function getLock() {
+  return lock;
 }
 
 export function isLoggedIn() {
   const idToken = getIdToken();
-  console.log(idToken);
   return !!idToken && !isTokenExpired(idToken);
+}
+
+export function getProfile() {
+  const profile = localStorage.getItem(PROFILE_TOKEN_KEY)
+  return profile ? JSON.parse(profile) : {}
 }
 
 function getTokenExpirationDate(encodedToken) {

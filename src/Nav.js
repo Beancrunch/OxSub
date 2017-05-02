@@ -1,9 +1,27 @@
 import React, { Component } from 'react';
-import { login, logout, isLoggedIn, getIdToken, getProfile } from './AuthService';
+import { login, logout, isLoggedIn, getIdToken, getProfile, getLock } from './AuthService';
 
 class Nav extends Component {
 
   render() {
+    const PROFILE_TOKEN_KEY = 'profile_token';
+    var lock = getLock();
+    var idToken = getIdToken();
+    lock.getProfile(idToken, (error, profile) => {
+      if (error) {
+        console.log('Error loading the Profile', error)
+      } else {
+        console.log('got profile from server')
+        console.log(profile)
+        localStorage.setItem(PROFILE_TOKEN_KEY, JSON.stringify(profile))
+      }
+    });
+    // if (getProfile().hasOwnProperty('name')) {
+    //   console.log(getProfile().name)
+    // } else {
+    //   console.log('no name')
+    // }
+
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container">
