@@ -8,14 +8,14 @@ class Callback extends Component {
   }
 
   componentDidMount() {
-    setAccessToken();
-    setIdToken();
-    window.location.href = "/";
+    setAccessToken()
+    setIdToken()
+    window.location.href = "/"
   }
 
   render() {
-    return null;
+    return null
   }
 }
 
-export default Callback;
+export default Callback
