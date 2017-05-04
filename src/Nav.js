@@ -4,15 +4,15 @@ import { login, logout, isLoggedIn, getIdToken, getLock } from './AuthService';
 class Nav extends Component {
 
   constructor(props) {
-    super(props);
-    this.state = {profile: {}};
+    super(props)
+    this.state = {profile: {}}
   }
 
   componentDidMount() {
     const PROFILE_TOKEN_KEY = 'profile_token';
     if (isLoggedIn()) {
-      var lock = getLock();
-      var idToken = getIdToken();
+      let lock = getLock()
+      let idToken = getIdToken()
       lock.getProfile(idToken, (error, profile) => {
         if (error) {
           console.log('Error loading the Profile', error)
@@ -22,7 +22,7 @@ class Nav extends Component {
           localStorage.setItem(PROFILE_TOKEN_KEY, profileString)
           this.setState({profile: profile})
         }
-      });
+      })
     }
   }
 
@@ -49,7 +49,7 @@ class Nav extends Component {
                ( <li><a href="#" onClick={() => login()}>Login</a></li> )
              }
              {
-               console.log(this.state.profile.name)
+               console.log('Username :' + this.state.profile.name)
              }
            </ul>
          </div>
@@ -59,4 +59,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default Nav
