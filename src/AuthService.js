@@ -36,6 +36,7 @@ export function login() {
 export function logout() {
   clearIdToken();
   clearAccessToken();
+  clearProfile();
   browserHistory.push('/');
 }
 
@@ -61,6 +62,10 @@ function clearAccessToken() {
   localStorage.removeItem(ACCESS_TOKEN_KEY);
 }
 
+function clearProfile() {
+  localStorage.removeItem(PROFILE_TOKEN_KEY);
+}
+
 // Helper function that will allow us to extract the access_token and id_token
 function getParameterByName(name) {
   let match = RegExp('[#&]' + name + '=([^&]*)').exec(window.location.hash);
@@ -77,14 +82,6 @@ export function setAccessToken() {
 export function setIdToken() {
   let idToken = getParameterByName('id_token');
   localStorage.setItem(ID_TOKEN_KEY, idToken);
-  // lock.getProfile(idToken, (error, profile) => {
-  //   if (error) {
-  //     console.log('Error loading the Profile', error)
-  //   } else {
-  //     console.log('got profile from server')
-  //     localStorage.setItem(PROFILE_TOKEN_KEY, JSON.stringify(profile))
-  //   }
-  // });
 }
 
 export function getLock() {

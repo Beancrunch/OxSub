@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
-import { login, logout, isLoggedIn, getIdToken, getProfile, getLock } from './AuthService';
+import { login, logout, isLoggedIn, getIdToken, getLock } from './AuthService';
 
 class Nav extends Component {
 
-  render() {
+  constructor(props) {
+    super(props);
+    this.state = {profile: {}};
+  }
+
+  componentDidMount() {
     const PROFILE_TOKEN_KEY = 'profile_token';
     var lock = getLock();
     var idToken = getIdToken();
@@ -11,17 +16,15 @@ class Nav extends Component {
       if (error) {
         console.log('Error loading the Profile', error)
       } else {
-        console.log('got profile from server')
-        console.log(profile)
-        localStorage.setItem(PROFILE_TOKEN_KEY, JSON.stringify(profile))
+        let profileString = JSON.stringify(profile)
+        console.log('got profile from server :: ' + profileString)
+        localStorage.setItem(PROFILE_TOKEN_KEY, profileString)
+        this.setState({profile: profile})
       }
     });
-    // if (getProfile().hasOwnProperty('name')) {
-    //   console.log(getProfile().name)
-    // } else {
-    //   console.log('no name')
-    // }
+  }
 
+  render() {
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container">
@@ -42,6 +45,9 @@ class Nav extends Component {
                (isLoggedIn()) ?
                ( <li><a href="/" onClick={() => logout()}>Logout</a></li> ) :
                ( <li><a href="#" onClick={() => login()}>Login</a></li> )
+             }
+             {
+               console.log(this.state.profile.name)
              }
            </ul>
          </div>
