@@ -1,5 +1,6 @@
 # OxSub
-The substitute rower marketplace for Oxford College Rowing
+The substitute rower marketplace for Oxford College Rowing      
+https://oxsub.herokuapp.com
 
 # Tech stack
 * [React](https://facebook.github.io/react/)
