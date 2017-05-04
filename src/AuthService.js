@@ -19,7 +19,7 @@ var auth = new auth0.WebAuth({
 
 const lock = new Auth0Lock(CLIENT_ID, CLIENT_DOMAIN, {
               auth: {
-                redirectUrl: 'http://localhost:3000/login',
+                redirectUrl: '/login',
                 responseType: 'token'
               }
             });
@@ -28,7 +28,6 @@ export function login() {
   auth.authorize({
     responseType: 'token id_token',
     redirectUri: REDIRECT,
-    // audience: AUDIENCE,
     scope: SCOPE
   });
 }
