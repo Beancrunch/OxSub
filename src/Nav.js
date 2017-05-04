@@ -10,18 +10,20 @@ class Nav extends Component {
 
   componentDidMount() {
     const PROFILE_TOKEN_KEY = 'profile_token';
-    var lock = getLock();
-    var idToken = getIdToken();
-    lock.getProfile(idToken, (error, profile) => {
-      if (error) {
-        console.log('Error loading the Profile', error)
-      } else {
-        let profileString = JSON.stringify(profile)
-        console.log('got profile from server :: ' + profileString)
-        localStorage.setItem(PROFILE_TOKEN_KEY, profileString)
-        this.setState({profile: profile})
-      }
-    });
+    if (isLoggedIn()) {
+      var lock = getLock();
+      var idToken = getIdToken();
+      lock.getProfile(idToken, (error, profile) => {
+        if (error) {
+          console.log('Error loading the Profile', error)
+        } else {
+          let profileString = JSON.stringify(profile)
+          console.log('got profile from server :: ' + profileString)
+          localStorage.setItem(PROFILE_TOKEN_KEY, profileString)
+          this.setState({profile: profile})
+        }
+      });
+    }
   }
 
   render() {
