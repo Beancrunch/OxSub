@@ -8,7 +8,7 @@ const ACCESS_TOKEN_KEY = 'access_token';
 const PROFILE_TOKEN_KEY = 'profile_token';
 const CLIENT_ID = '2OpU7GoW2DnK8Hlz1HLVoLxfYiDA0bui';
 const CLIENT_DOMAIN = 'beancrunch.eu.auth0.com';
-const REDIRECT = 'http://localhost:3000/callback';
+const REDIRECT = location.origin+'/callback';
 const SCOPE = 'email';
 const AUDIENCE = 'AUDIENCE_ATTRIBUTE';
 
