@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './Home';
-import MainRouter from './MainRouter';
+import Home from './pages/Home';
+import MainRouter from './components/routing/MainRouter';
 import './css/index.css';
 
 ReactDOM.render(

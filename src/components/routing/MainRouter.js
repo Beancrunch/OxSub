@@ -4,10 +4,10 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import Home from './Home';
-import Nav from './Nav';
-import Signin from './Signin';
-import Callback from './Callback';
+import Home from '../../pages/Home';
+import Nav from '../Nav';
+import Signin from '../../pages/Signin';
+import Callback from '../auth0/Callback';
 
 const MainRouter = () => (
   <Router>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Nav from './Nav';
-import UpcomingOutings from './UpcomingOutings';
+import Nav from '../components/Nav';
+import UpcomingOutings from '../components/UpcomingOutings';
 
 var outingSummaries = [
   {"crew":"Christ Church M1", "subRequired":"cox", "date":"30 April 2017", "time":"2pm"},
@@ -21,4 +21,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default Home

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Nav from './Nav';
-import './css/signin.css';
+import Nav from '../components/Nav';
+import '../css/signin.css';
 
 class Signin extends React.Component {
   render() {

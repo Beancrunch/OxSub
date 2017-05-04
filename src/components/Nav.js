@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { login, logout, isLoggedIn, getIdToken, getLock } from './AuthService';
+import { login, logout, isLoggedIn, getIdToken, getLock } from './auth0/AuthService';
 
 const PROFILE_TOKEN_KEY = 'profile_token'
 
