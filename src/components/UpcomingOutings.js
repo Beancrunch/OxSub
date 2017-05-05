@@ -25,7 +25,7 @@ class UpcomingOutings extends Component {
   render() {
     var rows = [];
     this.props.outingSummaries.forEach(function(outingSummary) {
-      rows.push(<RequestSummary outingSummary={outingSummary} />);
+      rows.push(<RequestSummary outingSummary={outingSummary} key={outingSummary.id} />);
     });
     return (
       <div className="below-nav-div">
