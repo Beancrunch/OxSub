@@ -42,7 +42,9 @@ class UpcomingOutings extends Component {
               </div>
             </div>
             <div className="col-md-4">
-              <button type="button" className="btn btn-lg btn-primary">CREATE A NEW REQUEST</button>
+              <a href="/create-new-request" className="btn btn-lg btn-primary" role="button">
+                CREATE A NEW REQUEST
+              </a>
             </div>
           </div>
         </div>

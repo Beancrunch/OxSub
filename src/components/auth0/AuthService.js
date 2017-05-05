@@ -79,13 +79,15 @@ export function getProfile() {
 }
 
 function getTokenExpirationDate(encodedToken) {
-  const token = decode(encodedToken);
-  if (!token.exp) { return null; }
+  if (encodedToken) {
+    const token = decode(encodedToken);
+    if (!token.exp) { return null; }
 
-  const date = new Date(0);
-  date.setUTCSeconds(token.exp);
+    const date = new Date(0);
+    date.setUTCSeconds(token.exp);
 
-  return date;
+    return date;
+  }  
 }
 
 function isTokenExpired(token) {
