@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Nav from '../components/Nav';
 import UpcomingOutings from '../components/UpcomingOutings';
 

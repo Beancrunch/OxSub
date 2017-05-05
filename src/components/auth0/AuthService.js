@@ -10,7 +10,6 @@ const CLIENT_ID = '2OpU7GoW2DnK8Hlz1HLVoLxfYiDA0bui';
 const CLIENT_DOMAIN = 'beancrunch.eu.auth0.com';
 const REDIRECT = location.origin+'/callback';
 const SCOPE = 'email';
-const AUDIENCE = 'AUDIENCE_ATTRIBUTE';
 
 var auth = new auth0.WebAuth({
   clientID: CLIENT_ID,

@@ -1,11 +1,9 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 import Home from '../../pages/Home';
-import Nav from '../Nav';
 import Signin from '../../pages/Signin';
 import Callback from '../auth0/Callback';
 
