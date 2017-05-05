@@ -38,6 +38,25 @@ class Nav extends Component {
     })
   }
 
+  getAuthenticatedUserNavMenuItems() {
+    return (
+      <li className="dropdown">
+        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          Welcome {this.state.profile.name} <span className="caret"></span>
+        </a>
+        <ul className="dropdown-menu">
+          <li><a href="/" onClick={() => logout()}>Logout</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li role="separator" className="divider"></li>
+          <li><a href="#">Separated link</a></li>
+          <li role="separator" className="divider"></li>
+          <li><a href="#">One more separated link</a></li>
+        </ul>
+      </li>
+    )
+  }
+
   render() {
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top">
@@ -57,8 +76,12 @@ class Nav extends Component {
              <li><a href="#">Looking to Sub?</a></li>
              {
                (isLoggedIn()) ?
-               ( <li><a href="/" onClick={() => logout()}>Logout</a></li> ) :
-               ( <li><a href="#" onClick={() => login()}>Login</a></li> )
+               (
+                 this.getAuthenticatedUserNavMenuItems()
+               ) :
+               (
+                 <li><a href="#" onClick={() => login()}>Login</a></li>
+               )
              }
              {
                console.log('Username :' + this.state.profile.name)
